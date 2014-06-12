@@ -2102,15 +2102,15 @@ void KeyboardInputMapper::process(const RawEvent* rawEvent) {
         mCurrentHidUsage = 0;
 
         //TPT
-        if (rawEvent->keyCode == 0x00d4 && rawEvent->value==0x00000001) {
-           if(touch_screen_disabled) {
-                          property_set("tpt.touchscreen.enabled", "0");
+        if (rawEvent->code == 0x00d4 && rawEvent->value == 0x00000001) {
+           if (touch_screen_disabled) {
+                // property_set("tpt.touchscreen.enabled", "0");
                 touch_screen_disabled = 0;
-                LOGD("TouchScreenDisabled enabled: %d",touch_screen_disabled);
+                ALOGD("TouchScreenDisabled enabled: %d",touch_screen_disabled);
            } else {
-                property_set("tpt.touchscreen.enabled", "1");
-                          touch_screen_disabled = 1;
-                LOGD("TouchScreenDisabled disabled: %d",touch_screen_disabled);
+                // property_set("tpt.touchscreen.enabled", "1");
+                touch_screen_disabled = 1;
+                ALOGD("TouchScreenDisabled disabled: %d",touch_screen_disabled);
            }
         }
         //TPT End
